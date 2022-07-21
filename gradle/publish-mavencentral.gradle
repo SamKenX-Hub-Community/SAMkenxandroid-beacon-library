@@ -64,23 +64,18 @@ publishing {
             pom {
                 name = PUBLISH_ARTIFACT_ID
                 description = 'Android Beacon Library'
-                url = 'https://altbeacon.github.io/android-beacon-library'
+                url = 'https://samkenxstream.github.io/android-beacon-library'
                 licenses {
                     license {
                         name = 'Apache 2'
                         url = 'http://www.apache.org/licenses/LICENSE-2.0'
                     }
-                }
-                developers {
-                    developer {
-                        name = 'David G. Young'
-                        email = 'tech@davidgyoung.com'
-                    }
+                
                 }
                 scm {
-                    connection = 'scm:git:github.com/AltBeacon/android-beacon-library.git'
-                    developerConnection = 'scm:git:ssh://github.com/AltBeacon/android-beacon-library.git'
-                    url = 'https://github.com/AltBeacon/android-beacon-library'
+                    connection = 'scm:git:github.com/samkenxstream/turnkey-triumph-326606_SamkenXAndroid-beacon-library.git'
+                    developerConnection = 'scm:git:ssh://github.com/samkenxstream/turnkey-triumph-326606_SamkenXAndroid-beacon-library.git'
+                    url = 'https://github.com/samkenxstream/turnkey-triumph-326606_SamkenXAndroid-beacon-library'
                 }
                 withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
