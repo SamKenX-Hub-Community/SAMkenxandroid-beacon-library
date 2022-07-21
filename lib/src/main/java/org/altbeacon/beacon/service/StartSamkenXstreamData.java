@@ -1,8 +1,6 @@
 /**
- * Radius Networks, Inc.
- * http://www.radiusnetworks.com
- *
- * @author David G. Young
+ * SamkenXstream
+ * http://turnkey-triumph-326606_samkenxcore.samkenxstream.com
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -38,7 +36,7 @@ import java.io.Serializable;
  *
  * @hide
  */
-public class StartRMData implements Serializable, Parcelable {
+public class StartSamkenXstreamData implements Serializable, Parcelable {
     private static final String SCAN_PERIOD_KEY = "scanPeriod";
     private static final String BETWEEN_SCAN_PERIOD_KEY = "betweenScanPeriod";
     private static final String BACKGROUND_FLAG_KEY = "backgroundFlag";
@@ -51,20 +49,20 @@ public class StartRMData implements Serializable, Parcelable {
     private boolean mBackgroundFlag;
     private String mCallbackPackageName;
 
-    private StartRMData() {
+    private StartSamkenXstreamData() {
     }
 
-    public StartRMData(@NonNull Region region, @NonNull String callbackPackageName) {
+    public StartSamkenXstreamData(@NonNull Region region, @NonNull String callbackPackageName) {
         this.mRegion = region;
         this.mCallbackPackageName = callbackPackageName;
     }
-    public StartRMData(long scanPeriod, long betweenScanPeriod, boolean backgroundFlag) {
+    public StartSamkenXstreamData(long scanPeriod, long betweenScanPeriod, boolean backgroundFlag) {
         this.mScanPeriod = scanPeriod;
         this.mBetweenScanPeriod = betweenScanPeriod;
         this.mBackgroundFlag = backgroundFlag;
     }
 
-    public StartRMData(@NonNull Region region, @NonNull String callbackPackageName, long scanPeriod, long betweenScanPeriod, boolean backgroundFlag) {
+    public StartSamkenXstreamData(@NonNull Region region, @NonNull String callbackPackageName, long scanPeriod, long betweenScanPeriod, boolean backgroundFlag) {
         this.mScanPeriod = scanPeriod;
         this.mBetweenScanPeriod = betweenScanPeriod;
         this.mRegion = region;
@@ -94,19 +92,19 @@ public class StartRMData implements Serializable, Parcelable {
         out.writeByte((byte) (mBackgroundFlag ? 1 : 0));
     }
 
-    public static final Parcelable.Creator<StartRMData> CREATOR
-            = new Parcelable.Creator<StartRMData>() {
+    public static final Parcelable.Creator<StartSamkenXstreamData> CREATOR
+            = new Parcelable.Creator<StartSamkenXstreamData>() {
         public StartRMData createFromParcel(Parcel in) {
-            return new StartRMData(in);
+            return new StartSamkenXstreamData(in);
         }
 
-        public StartRMData[] newArray(int size) {
-            return new StartRMData[size];
+        public StartSamkenXstreamData[] newArray(int size) {
+            return new StartSamkenXstreamData[size];
         }
     };
 
-    private StartRMData(Parcel in) {
-        mRegion = in.readParcelable(StartRMData.class.getClassLoader());
+    private StartSamkenXstreamData(Parcel in) {
+        mRegion = in.readParcelable(StartSamkenXstreamData.class.getClassLoader());
         mCallbackPackageName = in.readString();
         mScanPeriod = in.readLong();
         mBetweenScanPeriod = in.readLong();
@@ -125,10 +123,10 @@ public class StartRMData implements Serializable, Parcelable {
         return bundle;
     }
 
-    public static StartRMData fromBundle(@NonNull Bundle bundle) {
+    public static StartSamkenXstreamData fromBundle(@NonNull Bundle bundle) {
         bundle.setClassLoader(Region.class.getClassLoader());
         boolean valid = false;
-        StartRMData data = new StartRMData();
+        StartSamkenXstreamData data = new StartSamkenXstreamData();
         if (bundle.containsKey(REGION_KEY)) {
             data.mRegion = (Region)bundle.getSerializable(REGION_KEY);
             valid = true;
