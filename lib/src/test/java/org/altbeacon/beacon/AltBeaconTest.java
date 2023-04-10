@@ -9,6 +9,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import java.util.Arrays;
+import java.util.logging.LogManager;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
@@ -62,6 +63,7 @@ public class AltBeaconTest {
     @Test
     public void testCanSerializeParcelable() {
         org.robolectric.shadows.ShadowLog.stream = System.err;
+        BeaconManager.setDebug(true);
         final Beacon original = new AltBeacon.Builder().setMfgReserved(2)
                                                        .setBluetoothAddress("aa:bb:cc:dd:ee:ff")
                                                        .setBluetoothName("Any Bluetooth")
@@ -128,7 +130,9 @@ public class AltBeaconTest {
                                                        .setRunningAverageRssi(-12.3)
                                                        .setServiceUuid(13)
                                                        .setTxPower(14)
+                                                       .setLastPacketRawBytes(new byte[]{ 0x1, 0x2})
                                                        .build();
+
         original.setPacketCount(15);
         original.setRssiMeasurementCount(16);
         final AltBeacon copied = new AltBeacon(original);
@@ -151,7 +155,8 @@ public class AltBeaconTest {
                         hasProperty("serviceUuid", equalTo(13)),
                         hasProperty("txPower", equalTo(14)),
                         hasProperty("packetCount", equalTo(15)),
-                        hasProperty("measurementCount", equalTo(16))
+                        hasProperty("measurementCount", equalTo(16)),
+                        hasProperty("lastPacketRawBytes", equalTo(new byte[]{ 0x1, 0x2}))
                 )
         );
     }
